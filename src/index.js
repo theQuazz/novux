@@ -3,6 +3,7 @@ const { resetState } = utils;
 
 const UPDATE = 'UPDATE';
 const RESET = 'RESET';
+const HYDRATE = 'HYDRATE';
 
 /**
 * update
@@ -78,6 +79,9 @@ export const createReducer = (name, initialState) => (state = initialState, acti
 			};
 		}
 		return state;
+
+	case HYDRATE:
+		return action.payload[name] || state;
 
 	default:
 		return state;
